@@ -46,12 +46,6 @@
  */
 
 /**
- * Exception handling
- */
-
-require_once 'QRCode/Exception.php';
-
-/**
  * QRCode
  *
  * @category Images

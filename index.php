@@ -1,5 +1,5 @@
 <?php
-require_once('/Image/QRCode.php');
+require_once('Image/QRCode.php');
 
 if (!isset($_REQUEST["chl"])) {
   return false;
@@ -9,4 +9,10 @@ if (!isset($_REQUEST["chl"])) {
 
 // QRコードを生成
 $qr = new Image_QRCode();
-$image = $qr->makeCode(htmlspecialchars($str, ENT_QUOTES)));
+$option = array(
+	"module_size"=>19,     //サイズ=>1〜19で指定
+	"image_type"=>"jpeg",   //画像形式=>jpegかpngを指定
+	"output_type"=>"display",  //出力方法=>displayかreturnで指定 returnの場合makeCodeで画像リソースが返される
+	"error_correct"=>"H"     //クオリティ(L<M<Q<H)を指定
+);
+$qr->makeCode($str,$option); 
